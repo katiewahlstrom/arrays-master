@@ -1,36 +1,96 @@
-import Senators from './data/senators'
+import Senators from "./data/senators";
+import { count } from "code";
 
 export const republicans = () => {
-  return REPLACE_ME_WITH_CODE
-}
+  const republicans = Senators.filter((senator) => {
+    if (senator.party === "Republican") {
+      return true;
+    }
+  });
+
+  return republicans;
+};
 
 export const democrats = () => {
-  return REPLACE_ME_WITH_CODE
-}
+  const democrats = Senators.filter((senator) => {
+    if (senator.party === "Democrat") {
+      return true;
+    }
+  });
+
+  return democrats;
+};
 
 export const independents = () => {
-  return REPLACE_ME_WITH_CODE
-}
+  const independent = Senators.filter((senator) => {
+    if (senator.party === "Independent") {
+      return true;
+    }
+  });
 
+  return independent;
+};
 export const males = () => {
-  return REPLACE_ME_WITH_CODE
-}
+  const male = Senators.filter((senator) => {
+    if (senator.person.gender === "male") {
+      return true;
+    }
+  });
+
+  return male;
+};
 
 export const females = () => {
-  return REPLACE_ME_WITH_CODE
-}
+  const female = Senators.filter((senator) => {
+    if (senator.person.gender === "female") {
+      return true;
+    }
+  });
 
-export const byState = (state = 'UT') => {
-  return REPLACE_ME_WITH_CODE
-}
+  return female;
+};
+
+export const byState = (state = "UT") => {
+  const senators = Senators.filter((senator) => {
+    if (state === senator.state) {
+      return true;
+    }
+  });
+  return senators;
+};
 
 export const mapping = () => {
-  return REPLACE_ME_WITH_CODE
-}
+  const simplifiedSenators = Senators.map((senator) => {
+    const newSenator = {
+      firstName: senator.person.firstname,
+      lastname: senator.person.lastName,
+      party: senator.party,
+      gender: senator.person.gender,
+    };
+
+    return newSenator;
+  });
+  return simplifiedSenators;
+};
 
 export const reducedCount = () => {
-  return REPLACE_ME_WITH_CODE
-}
+  const partyCounts = Senators.reduce(
+    (accum, senator) => {
+      if (senator.party === "Republican") {
+        accum.republican++;
+      } else if (senator.party === "Democrat") {
+        accum.democrat++;
+      } else {
+        accum.independent++;
+      }
 
-
-const REPLACE_ME_WITH_CODE = false
+      return accum;
+    },
+    {
+      republican: 0,
+      democrat: 0,
+      independent: 0,
+    }
+  );
+  return partyCounts;
+};
