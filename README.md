@@ -35,3 +35,4 @@ yarn test
     ```   
 3. Find the senator from your birth state, and reduce your array to pull the most senior senator. Paste the filter, and reduce function here: (code)
 
+# arrays-master
